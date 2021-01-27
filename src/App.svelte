@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
-  export let date;
+  export let date: string;
 
   onMount(async () => {
     const res = await fetch("/api/date");
