@@ -1,19 +1,16 @@
-import type { NowRequest, NowResponse } from "@vercel/node";
-import { GoogleSpreadsheet } from "google-spreadsheet";
+import type { NowRequest, NowResponse } from '@vercel/node';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
 export default async (req: NowRequest, res: NowResponse) => {
   if (!req?.body?.pwd) {
-    res.send("Missing pwd");
+    res.send('Missing pwd');
   }
   try {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
 
     await doc.useServiceAccountAuth({
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY.replace(
-        /\\n/g,
-        "\n"
-      ),
+      private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY.replace(/\\n/g, '\n'),
     });
 
     await doc.loadInfo();

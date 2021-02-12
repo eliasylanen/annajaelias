@@ -1,10 +1,12 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { Link, navigate } from "svelte-routing";
-  import Section from '../components/Section.svelte'
-  import { logout } from "../util/logout";
+
+  import Minutes from '../sections/minutes.svelte'
+  import Map from '../sections/map.svelte'
 
   import { isLoggedIn } from '../util/checkLogin'
-  import { onMount } from "svelte";
+  import { logout } from "../util/logout";
 
   onMount(() => {
     !isLoggedIn() && navigate('/login', { replace: true })
@@ -33,6 +35,7 @@
   <button id="logout" on:click={logout}>Logout</button>
 </nav>
 
-<Section>
-  <h1>Hello World</h1>
-</Section>
+<main>
+  <Minutes />
+  <Map />
+</main>
