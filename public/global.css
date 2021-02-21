@@ -1,23 +1,32 @@
+@font-face {
+    font-family: 'dejavu_sansbook';
+    src: url('/assets/DejaVuSans-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
+  min-width: 320px;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  line-height: 1.65;
+  hyphens: auto;
+  font-family: 'dejavu_sansbook', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
 }
-section {
+main {
+  margin-top: 5rem;
+}
+.container {
   align-content: center;
   justify-content: center;
   box-sizing: border-box;
   display: grid;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  hyphens: auto;
-  line-height: 1.65;
   min-height: 100vh;
-  box-sizing: border-box;
-}
-.container {
   max-width: 968px;
   width: 85vw;
-  margin: 0 auto;
+  margin: auto;
 }
 h1 {
   font-size: 45px;
@@ -29,14 +38,9 @@ p {
   font-size: 16px;
 }
 a {
-  border-bottom: 1px solid white;
-  color: #0076ff;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s ease;
-}
-a:hover {
-  border-bottom: 1px solid #0076ff;
+  color: #EEE;
 }
 code,
 pre {
