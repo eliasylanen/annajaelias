@@ -1,19 +1,21 @@
 $small: 480px;
 $large: 960px;
 
-@mixin phone {
+$red: #D73838;
+
+@mixin s {
   @media (max-width: #{$small}) {
     @content;
   }
 }
 
-@mixin tablet {
-  @media (max-width: #{$large - 1px}) {
+@mixin m {
+  @media (min-width: #{$small + 1px}) {
     @content;
   }
 }
 
-@mixin desktop {
+@mixin l {
   @media (min-width: #{$large}) {
     @content;
   }

@@ -7,21 +7,21 @@
   section {
     position: relative;
     #map {
-      @include tablet {
+      @include s {
         position: static;
         background: url("/assets/map.svg") center / cover no-repeat;
         width: 100vw;
         padding-top: 80%;
-
       }
-      @include desktop {
+
+      @include m {
+        z-index: -1;
         background: url("/assets/map.svg") rgba(250, 250, 250, .9) center / cover no-repeat;
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
-        z-index: 0;
         background-blend-mode: overlay;
       }
     }

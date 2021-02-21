@@ -1,12 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Link, navigate } from "svelte-routing";
+  import { navigate } from "svelte-routing";
 
+  import Navigation from '../components/navigation.svelte'
   import Minutes from '../sections/minutes.svelte'
   import Map from '../sections/map.svelte'
+  import RSVP from '../sections/rsvp.svelte'
 
   import { isLoggedIn } from '../util/checkLogin'
-  import { logout } from "../util/logout";
 
   onMount(() => {
     !isLoggedIn() && navigate('/login', { replace: true })
@@ -14,29 +15,11 @@
 </script>
 
 <style>
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    z-index: 2
-  }
-
-  .navigation {
-    display: inline-block;
-    margin-right: auto;
-  }
 </style>
 
-<nav>
-  <div class="navigation">
-    <Link id="minutes" to="#minutes">Minutes</Link>
-  </div>
-  <button id="logout" on:click={logout}>Logout</button>
-</nav>
-
+<Navigation />
 <main>
   <Minutes />
   <Map />
+  <RSVP />
 </main>
