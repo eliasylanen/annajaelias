@@ -7,7 +7,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const { key } = req.body;
 
   if (!key) {
-    res.send('Missing pwd');
+    return res.send('Missing pwd');
   }
 
   try {
@@ -40,12 +40,14 @@ export default async (req: NowRequest, res: NowResponse) => {
       );
 
     if (!data.length) {
-      res.status(204).end();
+      return res.status(204).end();
     }
 
-    const jwt = sign(data[0], process.env.JWT_SECRET);
+    const user = data[0];
 
-    return res.json(jwt).end();
+    const token = sign(user, process.env.JWT_SECRET);
+
+    return res.json({ token, user }).end();
   } catch (err) {
     console.error(err);
     res.end();
