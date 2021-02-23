@@ -1,7 +1,7 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
 import { sign } from 'jsonwebtoken';
 import { googleSheets } from '../util/googleSheets';
-import { User } from '../types';
+import type { User } from '../types';
 import { jwtSecret } from '../config';
 
 export default async (req: NowRequest, res: NowResponse) => {
