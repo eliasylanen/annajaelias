@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import injectProcessEnv from 'rollup-plugin-inject-process-env';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -43,7 +44,7 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
-      css: (css) => {
+      css: css => {
         css.write('bundle.css');
       },
       preprocess: sveltePreprocess({
@@ -69,6 +70,10 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
+    }),
+
+    injectProcessEnv({
+      RELEASE_DAY: process.env.RELEASE_DAY,
     }),
 
     // In dev mode, call `npm run start` once

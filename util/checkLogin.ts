@@ -6,9 +6,9 @@ export const isLoggedIn = () => {
 
   if (!!token && !!user) return true;
 
-  const data = axios.post('/api/me', {
-    user,
-  });
+  // const data = axios.post('/api/me', {
+  //   user,
+  // });
 
-  console.log(data);
+  // console.log(data);
 };

@@ -3,8 +3,10 @@ const {
   GOOGLE_SERVICE_ACCOUNT_EMAIL,
   GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY,
   JWT_SECRET,
-  IS_READY,
+  RELEASE_DAY,
 } = process.env;
+
+export const releaseDay = new Date(RELEASE_DAY).getTime();
 
 export const sheet = {
   id: GOOGLE_SHEET_ID,
@@ -13,5 +15,3 @@ export const sheet = {
 };
 
 export const jwtSecret = JWT_SECRET;
-
-export const isReady = IS_READY === 'true';

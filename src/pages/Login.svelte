@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import axios from 'axios';
   import { isLoggedIn } from '../../util/checkLogin'
-import LoadingIcon from "../components/loadingIcon.svelte";
+  import LoadingIcon from "../components/loadingIcon.svelte";
 
   onMount(() => {
     isLoggedIn() && navigate('/', { replace: true })
