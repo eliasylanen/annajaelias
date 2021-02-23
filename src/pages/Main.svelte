@@ -7,7 +7,7 @@
   import Map from '../sections/map.svelte'
   import RSVP from '../sections/rsvp.svelte'
 
-  import { isLoggedIn } from '../util/checkLogin'
+  import { isLoggedIn } from '../../util/checkLogin'
 
   onMount(() => {
     !isLoggedIn() && navigate('/login', { replace: true })

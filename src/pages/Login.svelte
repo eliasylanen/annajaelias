@@ -2,7 +2,7 @@
   import { navigate } from "svelte-routing";
   import { onMount } from "svelte";
   import axios from 'axios';
-  import { isLoggedIn } from '../util/checkLogin'
+  import { isLoggedIn } from '../../util/checkLogin'
 import LoadingIcon from "../components/loadingIcon.svelte";
 
   onMount(() => {

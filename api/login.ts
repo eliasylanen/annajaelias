@@ -1,7 +1,8 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
 import { sign } from 'jsonwebtoken';
-import { googleSheets } from '../src/util/googleSheets';
+import { googleSheets } from '../util/googleSheets';
 import { User } from '../types';
+import { jwtSecret } from '../config';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { key } = req.body;
@@ -45,7 +46,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
     const user = data[0];
 
-    const token = sign(user, process.env.JWT_SECRET);
+    const token = sign(user, jwtSecret);
 
     return res.json({ token, user }).end();
   } catch (err) {
