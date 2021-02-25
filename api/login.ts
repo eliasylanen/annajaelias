@@ -1,8 +1,8 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
 import { sign } from 'jsonwebtoken';
-import { googleSheets } from '../util/googleSheets';
-import type { User } from '../types';
+import { getUserRow } from '../util/googleSheets';
 import { jwtSecret } from '../config';
+import type { User } from '../types';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { key } = req.body;
@@ -12,39 +12,35 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   try {
-    const doc = await googleSheets();
-    const rows = await doc.sheetsByIndex[0].getRows();
-    const data = rows
-      .filter(({ key }) => key === req.body.key)
-      .map(
-        ({
-          name,
-          key,
-          email,
-          sweden,
-          day,
-          evening,
-          registrations_available,
-          registrations_made,
-          language,
-        }): User => ({
-          name,
-          key,
-          email,
-          sweden: sweden === 'TRUE',
-          day: day === 'TRUE',
-          evening: evening === 'TRUE',
-          registrations_available: parseInt(registrations_available, 10),
-          registrations_made: parseInt(registrations_made, 10),
-          language,
-        }),
-      );
+    const userData = (await getUserRow(req)).map(
+      ({
+        name,
+        key,
+        email,
+        sweden,
+        day,
+        evening,
+        registrations_available,
+        registrations_made,
+        language,
+      }): User => ({
+        name,
+        key,
+        email,
+        sweden: sweden === 'TRUE',
+        day: day === 'TRUE',
+        evening: evening === 'TRUE',
+        registrations_available: parseInt(registrations_available, 10),
+        registrations_made: parseInt(registrations_made, 10),
+        language,
+      }),
+    );
 
-    if (!data.length) {
+    if (!userData.length) {
       return res.status(204).end();
     }
 
-    const user = data[0];
+    const user = userData[0];
 
     const token = sign(user, jwtSecret);
 

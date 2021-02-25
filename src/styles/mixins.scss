@@ -20,3 +20,9 @@ $red: #D73838;
     @content;
   }
 }
+
+@mixin redFrame {
+  border-left: 2px solid $red;
+  border-right: 2px solid $red;
+  border-radius: 7px;
+}

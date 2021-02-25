@@ -4,6 +4,7 @@ const {
   GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY,
   JWT_SECRET,
   RELEASE_DAY,
+  KEY_PATTERN,
 } = process.env;
 
 export const releaseDay = new Date(RELEASE_DAY).getTime();
@@ -15,3 +16,5 @@ export const sheet = {
 };
 
 export const jwtSecret = JWT_SECRET;
+
+export const keyPattern = KEY_PATTERN;

@@ -74,6 +74,7 @@ export default {
 
     injectProcessEnv({
       RELEASE_DAY: process.env.RELEASE_DAY,
+      KEY_PATTERN: process.env.KEY_PATTERN,
     }),
 
     // In dev mode, call `npm run start` once

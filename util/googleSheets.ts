@@ -1,9 +1,10 @@
+import type { NowRequest } from '@vercel/node';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { sheet } from '../config';
 
 const { id, accountEmail, privateKey } = sheet;
 
-export const googleSheets = async () => {
+export const getRows = async () => {
   const doc = new GoogleSpreadsheet(id);
 
   await doc.useServiceAccountAuth({
@@ -13,5 +14,10 @@ export const googleSheets = async () => {
 
   await doc.loadInfo();
 
-  return doc;
+  return doc.sheetsByIndex[0].getRows();
+};
+
+export const getUserRow = async (req: NowRequest) => {
+  const rows = await getRows();
+  return rows.filter(({ key }) => key === req.body.key);
 };

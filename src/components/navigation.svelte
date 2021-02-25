@@ -1,4 +1,5 @@
 <script lang="ts">
+  import InputElement from '../components/inputElement.svelte';
   import { logout } from "../../util/logout";
 
 </script>
@@ -35,5 +36,5 @@
     <a id="map" href="#map">Lahjalista</a>
     <a id="login" href="#login">Ilmoittaudu</a>
   </div>
-  <button id="logout" on:click={logout}>Logout</button>
+  <InputElement type="button" on:click={logout} value="Logout" />
 </nav>
