@@ -36,6 +36,12 @@
     margin-top: 3rem;
     min-height: auto;
 
+    img {
+      width: 7.5rem;
+      display: block;
+      margin: 2rem auto;
+    }
+
     h1, p {
       margin: auto;
     }
@@ -51,6 +57,7 @@
 
 <main class="container">
   {#if distance > 0}
+    <img src="/assets/logo.png" alt="Logo">
     <p>
       Anna sähköpostiosoitteesi ja kutsun mukana tullut koodi saadaksesi muistutuksen, kun ilmoittautuminen aukeaa
     </p>
