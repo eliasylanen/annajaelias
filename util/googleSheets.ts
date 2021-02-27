@@ -19,5 +19,5 @@ export const getRows = async () => {
 
 export const getUserRow = async (req: NowRequest) => {
   const rows = await getRows();
-  return rows.filter(({ key }) => key === req.body.key);
+  return rows.filter(({ key }) => key === (req.body.key as string).toUpperCase());
 };

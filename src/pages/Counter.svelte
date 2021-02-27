@@ -71,7 +71,7 @@
         <InputElement type="text" placeholder="Koodi muotoa AA111" {pattern} maxlength={5} bind:value={key} />
         <InputElement type="email" placeholder="Sähköposti" bind:value={email} />
       </fieldset>
-      <InputElement type="submit" on:click={handleSubmit} value="Liity" bind:disabled={isDisabled} />
+      <InputElement type="submit" on:click={handleSubmit} value="Lähetä" bind:disabled={isDisabled} />
     </form>
     <AsyncLoader
       {response}
@@ -79,22 +79,5 @@
       notFoundMessage="Antamasi koodi ei käy, tarkistathan sen olevan sama kuin kutsussa ja muotoa <code>AA111</code>"
       failureMessage="Hups, jotain meni pieleen. Otathan meihin yhteyttä, jos ongelma jatkuu"
     />
-    <!-- <div class="result">
-      {#if !!response}
-        <p>
-          {#await response}
-            <LoadingIcon />
-          {:then response}
-            {#if response.status === 200}
-              Kiitos! Lähetämme muistutuksen antamaasi sähköpostiin, kun ilmoittautuminen avataan
-            {:else if response.status === 204}
-                Antamasi koodi ei käy, tarkistathan sen olevan sama kuin kutsussa ja muotoa <code>AA111</code>
-            {/if}
-          {:catch}
-            Hups, jotain meni pieleen. Otathan meihin yhteyttä, jos ongelma jatkuu
-          {/await}
-        </p>
-      {/if}
-    </div> -->
   {/if}
 </main>
