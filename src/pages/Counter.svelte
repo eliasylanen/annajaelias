@@ -14,9 +14,7 @@
 
   let response: Promise<AxiosResponse>;
 
-  const pattern = keyPattern;
-
-  $: keyMatchesPattern = key.match(pattern);
+  $: keyMatchesPattern = key.match(keyPattern);
   $: isDisabled = !keyMatchesPattern || !email;
 
   const handleSubmit = (event: Event) => {
@@ -68,7 +66,7 @@
 
     <form>
       <fieldset>
-        <InputElement type="text" placeholder="Koodi muotoa AA111" {pattern} maxlength={5} bind:value={key} />
+        <InputElement type="text" placeholder="Koodi muotoa AA111" pattern={keyPattern} maxlength={5} bind:value={key} />
         <InputElement type="email" placeholder="Sähköposti" bind:value={email} />
       </fieldset>
       <InputElement type="submit" on:click={handleSubmit} value="Lähetä" bind:disabled={isDisabled} />
