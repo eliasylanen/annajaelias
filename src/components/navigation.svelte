@@ -1,5 +1,6 @@
 <script lang="ts">
   import { logout } from "../../util/logout";
+  import ArrowIcon from '../components/arrowIcon.svelte';
 
   let active = false;
 </script>
@@ -20,7 +21,6 @@
   }
 
   .active {
-    overflow: hidden !important;
     transform: translateX(0%) !important;
   }
 
@@ -61,14 +61,18 @@
     top: 0;
     bottom: 0;
     transform: translateX(-100%);
-    transition: transform .5s ease;
+    transition: transform .5s;
 
     .toggle {
       position: absolute;
-      top: 0%;
+      top: 1rem;
       left: 100%;
       background-color: $red;
-      padding: .5rem;
+      padding: .5rem .1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     ul {
@@ -112,7 +116,9 @@
 </nav>
 
 <nav class="mobileNavigation" class:active>
-  <div class="toggle" on:click={() => active = !active}>Toggle</div>
+  <div class="toggle" on:click={() => active = !active}>
+    <ArrowIcon {active} />
+  </div>
   <ul>
     <li id="minutes"><a href="#minutes">Päivän kulku</a></li>
     <li id="map"><a href="#map">Lahjalista</a></li>
@@ -120,4 +126,4 @@
   </ul>
   <button on:click={logout}>Kirjaudu ulos</button>
 </nav>
-<div class="overlay" class:active></div>
+<div class="overlay" class:active on:click={() => active = false}></div>
