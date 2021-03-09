@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { AxiosResponse } from "axios";
+  import type { AxiosResponse } from "axios";
 
   import LoadingIcon from "../components/loadingIcon.svelte";
 

@@ -15,7 +15,7 @@
 
   let response: Promise<AxiosResponse<any>>
 
-  const onSubmit = (event: Event) => {
+  const handleSubmit = (event: Event) => {
     event.preventDefault();
 
     response = axios.post('./api/login', { key });
@@ -37,15 +37,25 @@
 
 <style lang="scss">
   @import '../styles/mixins';
+
+  main {
+    text-align: center;
+    align-content: start;
+    margin-top: 30vh;
+    min-height: auto;
+  }
 </style>
 
-<form class="container">
-  <InputElement type="text" placeholder="AA000" maxlength="5" bind:value={key} />
-  <InputElement type="submit" on:click={onSubmit} value="Login" />
-</form>
+<main class="container">
+  <form>
+    <InputElement type="text" placeholder="AA000" maxlength="5" bind:value={key} />
+    <InputElement type="submit" on:click={handleSubmit} value="Login" />
+  </form>
 
-<AsyncLoader
-  successMessage="Kiitos! Lähetämme muistutuksen antamaasi sähköpostiin, kun ilmoittautuminen avataan"
-  notFoundMessage="Antamasi koodi ei käy, tarkistathan sen olevan sama kuin kutsussa ja muotoa <code>AA111</code>"
-  failureMessage="Hups, jotain meni pieleen. Otathan meihin yhteyttä, jos ongelma jatkuu"
-/>
+  <AsyncLoader
+    {response}
+    notFoundMessage="Antamasi koodi ei käy, tarkistathan sen olevan sama kuin kutsussa ja muotoa <code>AA111</code>"
+    failureMessage="Hups, jotain meni pieleen. Otathan meihin yhteyttä, jos ongelma jatkuu"
+  />
+</main>
+
