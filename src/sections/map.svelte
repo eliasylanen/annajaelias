@@ -4,9 +4,9 @@
 <style lang="scss">
   @import "../styles/mixins.scss";
 
-  section {
+  .map {
     position: relative;
-    #map {
+    #mapImg {
       @include s {
         position: static;
         background: url("/assets/map.svg") center / cover no-repeat;
@@ -31,8 +31,8 @@
   }
 </style>
 
-<section>
-  <div id="map"></div>
+<section class="map">
+  <div id="mapImg"></div>
   <div class="container">
     <p>
       How do you make a round circle with a square knife? That's your challenge for the day. Fluff it up a little and hypnotize it. In your imagination you can go anywhere you want. If you've been in Alaska less than a year you're a Cheechako. You can create beautiful things - but you have to see them in your mind first.

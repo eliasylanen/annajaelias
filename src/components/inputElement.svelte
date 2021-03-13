@@ -17,7 +17,7 @@
   .inputGroup {
     position: relative;
     width: 15rem;
-    margin: 1rem auto;
+    margin: 1.5rem auto;
     text-align: center;
 
     input:not([type="submit"]) {

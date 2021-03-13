@@ -4,7 +4,7 @@
 <style lang="scss">
   @import "../styles/mixins.scss";
 
-  section {
+  .minutes {
     grid-template-columns: repeat(2, auto);
     align-items: center;
 
@@ -37,7 +37,7 @@
   }
 </style>
 
-<section class="container">
+<section class="container minutes">
   <div id="left">
     <img src="/assets/minutes.svg" alt="ohjelma">
   </div>

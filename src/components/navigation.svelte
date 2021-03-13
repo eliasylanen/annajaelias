@@ -1,8 +1,21 @@
 <script lang="ts">
+import { onMount } from "svelte";
+
   import { logout } from "../../util/logout";
   import ArrowIcon from '../components/arrowIcon.svelte';
 
   let active = false;
+  let minutes: HTMLElement;
+  let map: HTMLElement;
+  let rsvp: HTMLElement;
+
+  onMount(() => {
+    minutes = document.querySelector('.minutes');
+    map = document.querySelector('.map');
+    rsvp = document.querySelector('.rsvp');
+  })
+
+  $: console.log(minutes);
 </script>
 
 <style lang="scss">
@@ -61,7 +74,7 @@
     top: 0;
     bottom: 0;
     transform: translateX(-100%);
-    transition: transform .5s;
+    transition: transform .5s ease;
 
     .toggle {
       position: absolute;
@@ -108,9 +121,9 @@
 
 <nav class="navigation">
   <ul>
-    <li id="minutes"><a href="#minutes">Päivän kulku</a></li>
-    <li id="map"><a href="#map">Lahjalista</a></li>
-    <li id="login"><a href="#login">Ilmoittaudu</a></li>
+    <li id="minutes" on:click={() => minutes.scrollIntoView()}><a href="#minutes">Päivän kulku</a></li>
+    <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
+    <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
   </ul>
   <button on:click={logout}>Kirjaudu ulos</button>
 </nav>
@@ -120,9 +133,9 @@
     <ArrowIcon {active} />
   </div>
   <ul>
-    <li id="minutes"><a href="#minutes">Päivän kulku</a></li>
-    <li id="map"><a href="#map">Lahjalista</a></li>
-    <li id="login"><a href="#login">Ilmoittaudu</a></li>
+    <li id="minutes" on:click={() => minutes.scrollIntoView()}><a href="#minutes">Päivän kulku</a></li>
+    <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
+    <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
   </ul>
   <button on:click={logout}>Kirjaudu ulos</button>
 </nav>

@@ -1,10 +1,10 @@
 <style lang="scss">
-  section {
+  .rsvp {
     text-align: center;
     margin: 5rem auto;
   }
 </style>
 
-<section>
+<section class="rsvp">
   <button>RSVP</button>
 </section>
