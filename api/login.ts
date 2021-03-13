@@ -1,6 +1,6 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
 import { sign } from 'jsonwebtoken';
-import { getUserRow } from '../util/googleSheets';
+import { getUserRowByKey } from '../util/googleSheets';
 import { jwtSecret } from '../config';
 import type { User } from '../types';
 
@@ -12,7 +12,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   try {
-    const userData = (await getUserRow(req)).map(
+    const userData = (await getUserRowByKey(key)).map(
       ({
         name,
         key,
@@ -44,7 +44,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
     const token = sign(user, jwtSecret);
 
-    return res.json({ token, user }).end();
+    return res.json({ token }).end();
   } catch (err) {
     console.error(err);
     res.end();

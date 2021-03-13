@@ -7,7 +7,7 @@ export interface User {
   sweden: boolean;
   day: boolean;
   evening: boolean;
-  registrations_available: number;
-  registrations_made: number;
+  registrations_available?: number;
+  registrations_made?: number;
   language: Languages;
 }

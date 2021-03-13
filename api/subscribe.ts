@@ -1,6 +1,6 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
 import { keyPattern } from '../config';
-import { getUserRow } from '../util/googleSheets';
+import { getUserRowByKey } from '../util/googleSheets';
 
 interface RequestBody {
   key: string;
@@ -15,7 +15,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   try {
-    const userData = await getUserRow(req);
+    const userData = await getUserRowByKey(key);
 
     if (!userData.length) {
       return res.status(204).end();
