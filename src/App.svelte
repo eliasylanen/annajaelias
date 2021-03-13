@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Router, Route } from "svelte-routing";
   import Login from "./pages/Login.svelte";
+  import Register from "./pages/Register.svelte";
   import Main from "./pages/Main.svelte";
   import Counter from "./pages/Counter.svelte";
   import { releaseDay } from '../config';
@@ -31,6 +32,7 @@
   <Router {url}>
     <Route path="/" component={Main} />
     <Route path="login" component={Login} />
+    <Route path="register" component={Register} />
   </Router>
 {/if}
 

@@ -46,6 +46,10 @@ import { onMount } from "svelte";
       list-style: none;
       padding: 0;
     }
+
+    a {
+      color: #FAFAFA;
+    }
   }
   .navigation {
     display: flex;

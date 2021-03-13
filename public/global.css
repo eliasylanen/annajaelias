@@ -40,12 +40,10 @@ p {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: #EEE;
 }
 code,
 pre {
   display: block;
-  color: #D73838;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }

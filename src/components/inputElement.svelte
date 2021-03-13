@@ -45,7 +45,7 @@
     }
 
     input[type="submit"] {
-      max-width: 7rem;
+      max-width: 10rem;
       border: 2px solid white;
       outline: none;
       border-radius: 7px;

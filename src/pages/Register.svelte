@@ -11,17 +11,18 @@
     isLoggedIn() && navigate('/', { replace: true })
   })
 
+  let email = '';
   let key = '';
 
   $: keyMatchesPattern = key.match(keyPattern);
-  $: isDisabled = !key || !keyMatchesPattern;
+  $: isDisabled = !key || !keyMatchesPattern || !email;
 
   let response: Promise<AxiosResponse<{ token: string }>>
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
 
-    response = axios.post('./api/login', { key });
+    response = axios.post('./api/register', { email, key });
 
     response.then(({data, status}) => {
       if (status === 200) {
@@ -43,25 +44,15 @@
     align-content: start;
     margin-top: 30vh;
     min-height: auto;
-
-    a {
-      color: $red;
-    }
   }
 </style>
 
 <main class="container">
   <form>
+    <InputElement type="email" placeholder="Sähköposti" maxlength="5" bind:value={key} />
     <InputElement type="text" placeholder="Koodi muotoa AA000" maxlength="5" bind:value={key} />
-    <InputElement type="submit" on:click={handleSubmit} bind:disabled={isDisabled} value="Kirjaudu" />
+    <InputElement type="submit" on:click={handleSubmit} bind:disabled={isDisabled} value="Rekisteröidy" />
   </form>
-
-  <p>
-    Jos sinulla ei ole koodia, rekisteröidy
-    <a href="/register">
-      tästä
-    </a>
-  </p>
 
   <AsyncLoader
     {response}
