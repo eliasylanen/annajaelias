@@ -5,13 +5,16 @@
   import { isLoggedIn } from '../../util/checkLogin'
   import InputElement from "../components/inputElement.svelte";
   import AsyncLoader from "../components/asyncLoader.svelte";
-
+  import { keyPattern } from "../../config";
 
   onMount(() => {
     isLoggedIn() && navigate('/', { replace: true })
   })
 
   let key = '';
+
+  $: keyMatchesPattern = key.match(keyPattern);
+  $: isDisabled = !key || !keyMatchesPattern;
 
   let response: Promise<AxiosResponse<any>>
 
@@ -49,7 +52,7 @@
 <main class="container">
   <form>
     <InputElement type="text" placeholder="AA000" maxlength="5" bind:value={key} />
-    <InputElement type="submit" on:click={handleSubmit} value="Login" />
+    <InputElement type="submit" on:click={handleSubmit} bind:disabled={isDisabled} value="Kirjaudu" />
   </form>
 
   <AsyncLoader

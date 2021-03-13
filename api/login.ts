@@ -8,7 +8,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const { key } = req.body;
 
   if (!key) {
-    return res.send('Missing pwd');
+    return res.status(400).send('Missing key');
   }
 
   try {
