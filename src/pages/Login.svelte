@@ -51,7 +51,7 @@
 
 <main class="container">
   <form>
-    <InputElement type="text" placeholder="AA000" maxlength="5" bind:value={key} />
+    <InputElement type="text" placeholder="Koodi muotoa AA000" maxlength="5" bind:value={key} />
     <InputElement type="submit" on:click={handleSubmit} bind:disabled={isDisabled} value="Kirjaudu" />
   </form>
 
