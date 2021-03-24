@@ -26,10 +26,10 @@ main {
   min-height: 100vh;
   max-width: 968px;
   width: 85vw;
-  margin: auto;
+  margin: 2rem auto;
 }
 h1 {
-  font-size: 45px;
+  font-size: 2.25rem;
 }
 h2 {
   margin-top: 1.5em;

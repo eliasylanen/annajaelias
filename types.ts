@@ -1,3 +1,8 @@
+export enum Sheet {
+  Login = 0,
+  Map = 1,
+}
+
 export type Languages = 'FI' | 'EN';
 
 export interface User {
@@ -10,4 +15,17 @@ export interface User {
   registrations_available?: number;
   registrations_made?: number;
   language: Languages;
+}
+
+export interface Countries {
+  fin: 'Suomi' | 'Ruotsi' | 'Tanska' | 'Saksa';
+  eng: 'Finland' | 'Sweden' | 'Denmark' | 'Germany';
+}
+
+export interface Present {
+  itemFin: string;
+  itemEng: string;
+  countryFin: Countries['fin'];
+  countryEng: Countries['eng'];
+  priceShown: number;
 }
