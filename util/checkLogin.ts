@@ -6,7 +6,7 @@ export const checkLogin = async () => {
 
   if (!token) return null;
 
-  const { data: user }: AxiosResponse<User> = await axios.post('/api/me', {
+  const { data: user }: AxiosResponse<User> = await axios.post('./api/me', {
     token,
   });
 

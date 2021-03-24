@@ -1,5 +1,5 @@
 import type { NowRequest, NowResponse } from '@vercel/node';
-import { JsonWebTokenError, verify } from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 import { jwtSecret } from '../config';
 
 export default async (req: NowRequest, res: NowResponse) => {
