@@ -7,8 +7,8 @@
   import { keyPattern } from "../../config";
   import AsyncLoader from '../components/asyncLoader.svelte';
 
-  onMount(() => {
-    checkLogin() && navigate('/', { replace: true })
+  onMount(async () => {
+    (await checkLogin()) && navigate('/', { replace: true })
   })
 
   let name = '';

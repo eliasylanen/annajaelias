@@ -31,8 +31,8 @@
 {:else}
   <Router {url}>
     <Route path="/" component={Main} />
-    <Route path="/login" component={Login} />
-    <Route path="/register" component={Register} />
+    <Route path="login" component={Login} />
+    <Route path="register" component={Register} />
   </Router>
 {/if}
 
