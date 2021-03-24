@@ -2,13 +2,13 @@
   import { navigate } from "svelte-routing";
   import { onMount } from "svelte";
   import axios, { AxiosResponse } from 'axios';
-  import { isLoggedIn } from '../../util/checkLogin'
+  import { checkLogin } from '../../util/checkLogin'
   import InputElement from "../components/inputElement.svelte";
   import { keyPattern } from "../../config";
   import AsyncLoader from '../components/asyncLoader.svelte';
 
   onMount(() => {
-    isLoggedIn() && navigate('/', { replace: true })
+    checkLogin() && navigate('/', { replace: true })
   })
 
   let name = '';

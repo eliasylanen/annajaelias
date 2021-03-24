@@ -1,5 +1,5 @@
 <script lang="ts">
-import { onMount } from "svelte";
+import { afterUpdate, onMount } from "svelte";
 
   import { logout } from "../../util/logout";
   import ArrowIcon from '../components/arrowIcon.svelte';
@@ -9,13 +9,11 @@ import { onMount } from "svelte";
   let map: HTMLElement;
   let rsvp: HTMLElement;
 
-  onMount(() => {
+  afterUpdate(() => {
     minutes = document.querySelector('.minutes');
     map = document.querySelector('.map');
     rsvp = document.querySelector('.rsvp');
   })
-
-  $: console.log(minutes);
 </script>
 
 <style lang="scss">

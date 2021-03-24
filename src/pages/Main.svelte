@@ -7,10 +7,15 @@
   import Map from '../sections/map.svelte'
   import RSVP from '../sections/rsvp.svelte'
 
-  import { isLoggedIn } from '../../util/checkLogin'
+  import { checkLogin } from '../../util/checkLogin'
+  import type { User } from "../../types";
 
-  onMount(() => {
-    !isLoggedIn() && navigate('/login', { replace: true })
+  let user: User | null;
+
+  onMount(async () => {
+    user = await checkLogin();
+
+    !user && navigate('/login', { replace: true })
   })
 </script>
 
@@ -19,7 +24,7 @@
 
 <Navigation />
 <main>
-  <Minutes />
+  <Minutes {user} />
   <Map />
   <RSVP />
 </main>

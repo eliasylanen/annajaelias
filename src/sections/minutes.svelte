@@ -1,4 +1,10 @@
 <script lang="ts">
+  import type { User } from "../../types";
+
+  export let user: User;
+
+  $: day = user?.day ?? false;
+  $: sweden = user?.sweden ?? false;
 </script>
 
 <style lang="scss">
@@ -13,6 +19,19 @@
 
       img {
         width: 10rem;
+      }
+    }
+
+    #right {
+      text-align: justify;
+
+      h1 {
+        border: none;
+        text-align: initial;
+
+        @include l {
+          border-bottom: 4px solid #D73838;
+        }
       }
     }
 
@@ -33,17 +52,83 @@
           width: 60%;
         }
       }
+
+      #right {
+        text-align: center;
+      }
     }
   }
 </style>
 
-<section class="container minutes">
-  <div id="left">
-    <img src="/assets/minutes.svg" alt="ohjelma">
-  </div>
-  <div id="right">
-    <p>
-      How do you make a round circle with a square knife? That's your challenge for the day. Fluff it up a little and hypnotize it. In your imagination you can go anywhere you want. If you've been in Alaska less than a year you're a Cheechako. You can create beautiful things - but you have to see them in your mind first.
-    </p>
-  </div>
-</section>
+{#if user}
+  <section class="container minutes">
+    <div id="left">
+      <img src="/assets/minutes.svg" alt="ohjelma">
+    </div>
+    <div id="right">
+      <div>
+        <h1>Hääparin päivä</h1>
+        <p>
+          Päivämme alkaa avioliiton siunauksella Aitolahden uudessa kirkossa, sillä meidät vihitään virallisesti maistraatissa ennen juhlapäivää. Siunaksella myös kirkko toivottaa onnea avioliitollemme, vaikka Elias paperilla pakana onkin. Siunauksen jälkeen siirrymme perheen kesken ravintola Haraldiin häävastaanotolle.
+        </p>
+        <p>
+          Ruotsissa asuvat sukulaiset on myös kutsuttu yhteen, jotta saamme myös kaukaisemmat sukulaiset mukaan tärkeään päiväämme. Striimatun siunauksen jälkeen tarjolla on ruokaa ja juomaa, sekä etäyhteys Haraldissa pidettävälle häävastaanotolle.
+        </p>
+        <p>
+          Illemmalla järjestämme Futuricen toimistolla suuren iltajuhlan, johon toivotamme tervetulleiksi kaikki sukulaiset ja ystävät.
+        </p>
+        <p>
+          PS: Koska tykkäämme kakusta, sitä on luonnollisesti tarjolla juhlan jokaisessa versiossa.
+        </p>
+      </div>
+
+      <h1>Tervetuloa juhlimaan kanssamme</h1>
+      {#if day}
+      <div>
+        <p>
+          Avioliittomme siunataan klo 12 Aitolahden uudessa kirkossa, Jenseninkatu 4, 33610 Tampere.
+        </p>
+        <p>
+          Siunauksen jälkeen siirrymme ravintola Haraldiin, Hämeenkatu 23, 33200 Tampere. Voit saapua ravintolalle omalla kyydillä, mutta ilman autoa kulkeville on tarjolla taksikyyti ravintolalle. Ilmoitathan kyytitarpeesta ilmoittautumislomakkeessa.
+        </p>
+        <p>
+          Haraldissa tarjoillaan runsas hääateria, sekä perinteistä hääohjelmaa sisältäen puheita ja tietenkin hääkakun. Oletettavissa oleva kesto on noin klo 13-16.
+        </p>
+        <p>
+          Olette myös halutessanne tervetulleet klo 18 alkavaan iltajuhlaan Futuricen toimistolle, osoitteeseen Kelloportinkatu 1 D, 33100 Tampere. Iltajuhlaan on kutsuttu laajempi joukko ystäviä ja sukulaisia, ja ohjelmassa on vapaamuotoisempaa hääohjelmaa sekä seurustelua.
+        </p>
+        <p>
+          Ilmoittautuminen tapahtuu sivuston alaosassa olevasta linkistä, jonka takaa löytyy lomake ilmoittautumisen lähettämiseen.
+        </p>
+      </div>
+      {:else if sweden}
+      <div>
+        <p>
+          Tilaisuus järjestetään Eevan ja Pärin luona, Stolp-Ekeby 18, 18695 Vallentuna. Juhlat alkavat avioliittomme striimatulla siunauksella klo 11 Ruotsin aikaa.
+        </p>
+        <p>
+          Hääjuhla alkaa noin klo 12 Ruotsin aikaa, jolloin saamme muodostettua etäyhteyden ravintola Haraldista. Tarjolla on hääateria, sekä perinteiseen tyyliin puheita, kakkua ja ohjelmaa. Oletettavissa oleva kesto on noin klo 12-15.
+        </p>
+        <p>
+          Ilmoittauduthan sivuston alaosan linkistä.
+        </p>
+      </div>
+      {:else}
+      <div>
+        <p>
+          Tervetuloa juhlimaan seilaamistamme avioliiton satamaan (yök mikä fraasi). Aloitamme juhlinnan lyhyellä seremonialla, jonka jälkeen luvassa on ruokaa, juomaa, ohjelmaa, musiikkia sekä tietenkin hääkakku.
+        </p>
+        <p>
+          Iltajuhla alkaa klo 18 alkaen Futuricen toimistolla, Kelloportinkatu 1 D, 33100 Tampere. Olethan ajoissa paikalla!
+        </p>
+      </div>
+      {/if}
+      <p>
+        Pukukoodina juhlinnalle on "näytä nätiltä :)"
+      </p>
+      <p>
+        Lämpimästi tervetuloa!
+      </p>
+    </div>
+  </section>
+{/if}

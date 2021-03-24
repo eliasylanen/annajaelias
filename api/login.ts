@@ -44,7 +44,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
     const token = sign(user, jwtSecret);
 
-    return res.json({ token }).end();
+    return res.json({ token, user }).end();
   } catch (err) {
     console.error(err);
     res.end();

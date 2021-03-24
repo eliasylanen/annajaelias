@@ -2,7 +2,7 @@ import type { NowRequest, NowResponse } from '@vercel/node';
 import { sign } from 'jsonwebtoken';
 import { getSheet, getUserRowByEmail } from '../util/googleSheets';
 import { jwtSecret } from '../config';
-import type { User } from '../types';
+import { Sheet, User } from '../types';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { name, email, key } = req.body;
@@ -28,13 +28,13 @@ export default async (req: NowRequest, res: NowResponse) => {
       language: 'FI',
     };
 
-    const sheet = await getSheet();
+    const sheet = await getSheet(Sheet.Login);
 
     await sheet.addRow(user as {});
 
     const token = sign(user, jwtSecret);
 
-    return res.json({ token }).end();
+    return res.json({ token, user }).end();
   } catch (err) {
     console.error(err);
     res.end();

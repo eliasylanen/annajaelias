@@ -1,7 +1,7 @@
 <script lang=ts>
   export let type = 'text';
   export let placeholder = '';
-  export let maxlength;
+  export let maxlength = null;
   export let pattern = '';
   export let value = '';
   export let disabled = false;
