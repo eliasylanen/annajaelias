@@ -33,11 +33,14 @@ export const getUserRowByEmail = async (email: string) => {
 
 export const getPresentData = async (): Promise<Present[]> => {
   const rows = await getRows(Sheet.Map);
-  return rows.map(({ itemFin, itemEng, countryFin, countryEng, priceShown }) => ({
-    itemFin,
-    itemEng,
-    countryFin,
-    countryEng,
-    priceShown,
-  }));
+  return rows.map(
+    ({ itemFin, itemEng, countryFin, countryEng, priceShown, paid }): Present => ({
+      itemFin,
+      itemEng,
+      countryFin,
+      countryEng,
+      priceShown: priceShown ? parseInt(priceShown) : null,
+      paid: !!paid,
+    }),
+  );
 };

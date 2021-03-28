@@ -22,7 +22,17 @@ $red: #D73838;
 }
 
 @mixin redFrame {
-  border-left: 2px solid $red;
-  border-right: 2px solid $red;
-  border-radius: 7px;
+  border: 2px solid white;
+  transition: border .5s;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+
+  &:not([disabled]) {
+    border-left: 2px solid $red;
+    border-right: 2px solid $red;
+  }
+
+  &:not([disabled]):hover, &:not([disabled]):focus {
+    border: 2px solid $red;
+  }
 }

@@ -26,11 +26,12 @@
       text-align: justify;
 
       h1 {
-        border: none;
+        display: inline-block;
         text-align: initial;
+        border-bottom: 4px solid #D73838;
 
-        @include l {
-          border-bottom: 4px solid #D73838;
+        @include s {
+          text-align: center;
         }
       }
     }

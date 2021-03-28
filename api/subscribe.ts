@@ -25,7 +25,7 @@ export default async (req: NowRequest, res: NowResponse) => {
     userRow.email = encodeURI(email);
     await userRow.save();
 
-    return res.status(200).end();
+    return res.status(204).end();
   } catch (err) {
     const { message: error } = err as Error;
     res.status(500).json({ error });

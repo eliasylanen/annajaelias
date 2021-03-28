@@ -18,8 +18,8 @@ export interface User {
 }
 
 export interface Countries {
-  fin: 'Suomi' | 'Ruotsi' | 'Tanska' | 'Saksa';
-  eng: 'Finland' | 'Sweden' | 'Denmark' | 'Germany';
+  fin: 'Suomi' | 'Ruotsi' | 'Tanska' | 'Saksa' | 'Tanska_paluu' | 'Ruotsi_paluu';
+  eng: 'Finland' | 'Sweden' | 'Denmark' | 'Germany' | 'Denmark_returm' | 'Sweden_return';
 }
 
 export interface Present {
@@ -27,5 +27,14 @@ export interface Present {
   itemEng: string;
   countryFin: Countries['fin'];
   countryEng: Countries['eng'];
-  priceShown: number;
+  priceShown?: number;
+  paid: boolean;
+}
+
+export interface PresentData {
+  id: number;
+  key: Countries['fin'];
+  data: Present[];
+  totalPrice: number;
+  totalPaid: number;
 }

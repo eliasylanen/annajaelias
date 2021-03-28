@@ -6,7 +6,7 @@
   import InputElement from "../components/inputElement.svelte";
   import AsyncLoader from "../components/asyncLoader.svelte";
   import { keyPattern } from "../../config";
-import type { User } from "../../types";
+  import type { User } from "../../types";
 
   onMount(async () => {
     (await checkLogin()) && navigate('/', { replace: true })

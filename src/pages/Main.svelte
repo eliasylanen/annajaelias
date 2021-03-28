@@ -10,7 +10,7 @@
   import { checkLogin } from '../../util/checkLogin'
   import type { User } from "../../types";
 
-  let user: User | null;
+  let user: User;
 
   onMount(async () => {
     user = await checkLogin();
@@ -22,9 +22,11 @@
 <style>
 </style>
 
+{#if user}
 <Navigation />
 <main>
   <Minutes {user} />
   <Map />
   <RSVP />
 </main>
+{/if}

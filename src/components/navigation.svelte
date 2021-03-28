@@ -5,12 +5,10 @@ import { afterUpdate, onMount } from "svelte";
   import ArrowIcon from '../components/arrowIcon.svelte';
 
   let active = false;
-  let minutes: HTMLElement;
   let map: HTMLElement;
   let rsvp: HTMLElement;
 
   afterUpdate(() => {
-    minutes = document.querySelector('.minutes');
     map = document.querySelector('.map');
     rsvp = document.querySelector('.rsvp');
   })
@@ -123,11 +121,11 @@ import { afterUpdate, onMount } from "svelte";
 
 <nav class="navigation">
   <ul>
-    <li id="minutes" on:click={() => minutes.scrollIntoView()}><a href="#minutes">Päivän kulku</a></li>
+    <li id="minutes" on:click={() => window.scrollTo(0, 0)}><a href="#minutes">Päivän kulku</a></li>
     <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
     <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
   </ul>
-  <button on:click={logout}>Kirjaudu ulos</button>
+  <button class="button" on:click={logout}>Kirjaudu ulos</button>
 </nav>
 
 <nav class="mobileNavigation" class:active>
@@ -135,10 +133,10 @@ import { afterUpdate, onMount } from "svelte";
     <ArrowIcon {active} />
   </div>
   <ul>
-    <li id="minutes" on:click={() => minutes.scrollIntoView()}><a href="#minutes">Päivän kulku</a></li>
+    <li id="minutes" on:click={() => window.scrollTo(0, 0)}><a href="#minutes">Päivän kulku</a></li>
     <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
     <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
   </ul>
-  <button on:click={logout}>Kirjaudu ulos</button>
+  <button class="button" on:click={logout}>Kirjaudu ulos</button>
 </nav>
 <div class="overlay" class:active on:click={() => active = false}></div>

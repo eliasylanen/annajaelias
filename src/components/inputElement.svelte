@@ -46,31 +46,16 @@
 
     input[type="submit"] {
       max-width: 10rem;
-      border: 2px solid white;
-      outline: none;
-      border-radius: 7px;
-      background-color: white;
-      padding: .5rem 1.5rem;
-      font-size: 1.1rem;
-      transition: border .5s;
       border-left: 2px solid lightgray;
       border-right: 2px solid lightgray;
-
-      &:not([disabled]) {
-        cursor: pointer;
-        @include redFrame;
-      }
-
-      &:not([disabled]):hover, &:not([disabled]):focus {
-        border: 2px solid #D73838;
-      }
+      @include redFrame;
     }
   }
 </style>
 
 <div class="inputGroup">
   {#if type === 'submit'}
-    <input {type} {value} {disabled} on:click />
+    <input class="button" {type} {value} {disabled} on:click />
   {:else}
     <input {placeholder} {maxlength} {pattern} bind:value={value} on:input={handleInputType} on:click />
     <div class="line"></div>
