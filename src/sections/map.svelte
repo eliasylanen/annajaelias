@@ -5,8 +5,6 @@
 
   const token = localStorage.getItem('token')
   const response = axios.post('./api/gifts', { token }) as Promise<AxiosResponse<{presentData: PresentData[]}>>;
-
-  $: console.log(response);
 </script>
 
 <style lang="scss">
@@ -58,7 +56,6 @@
     @include l { columns: 3; }
 
     .country {
-      display: inline-block;
       break-inside: avoid;
       margin: 0 1rem;
 
