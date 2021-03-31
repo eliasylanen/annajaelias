@@ -3,6 +3,9 @@ $large: 960px;
 
 $red: #D73838;
 
+$width: 85vw;
+$maxWidth: 60rem;
+
 @mixin s {
   @media (max-width: #{$small}) {
     @content;

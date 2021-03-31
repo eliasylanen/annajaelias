@@ -2,7 +2,8 @@
   @import "../styles/mixins.scss";
   .rsvp {
     text-align: center;
-    max-width: 85vw;
+    width: $width;
+    max-width: $maxWidth;
     margin: 7rem auto;
 
     .linkButton {

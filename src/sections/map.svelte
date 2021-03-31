@@ -39,8 +39,8 @@
   }
 
   .info {
-    max-width: 60rem;
-    width: 85vw;
+    max-width: $maxWidth;
+    width: $width;
     margin: 2rem auto;
   }
 
@@ -49,8 +49,8 @@
   }
 
   .presentList {
-    max-width: 60rem;
-    width: 85vw;
+    max-width: $maxWidth;
+    width: $width;
     margin: 1rem auto;
 
     @include s { columns: 1; }
