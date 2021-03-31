@@ -1,7 +1,7 @@
 $small: 520px;
 $large: 960px;
 
-$red: #D73838;
+$red: #d73838;
 
 $width: 85vw;
 $maxWidth: 60rem;
@@ -26,16 +26,17 @@ $maxWidth: 60rem;
 
 @mixin redFrame {
   border: 2px solid white;
-  transition: border .5s;
+  transition: border 0.5s;
   border-left: 2px solid lightgray;
   border-right: 2px solid lightgray;
 
   &:not([disabled]) {
     border-left: 2px solid $red;
     border-right: 2px solid $red;
-  }
 
-  &:not([disabled]):hover, &:not([disabled]):focus {
-    border: 2px solid $red;
+    &:hover,
+    &:focus {
+      border: 2px solid $red;
+    }
   }
 }
