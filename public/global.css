@@ -23,7 +23,7 @@ main {
   box-sizing: border-box;
   display: grid;
   min-height: 100vh;
-  max-width: 968px;
+  max-width: 60rem;
   width: 85vw;
   margin: 2rem auto;
 }
