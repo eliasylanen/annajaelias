@@ -14,7 +14,6 @@
 
   onMount(async () => {
     user = await checkLogin();
-
     !user && navigate('/login', { replace: true })
   })
 </script>
@@ -27,6 +26,6 @@
 <main>
   <Minutes {user} />
   <Map />
-  <RSVP />
+  <RSVP evening={user.evening} />
 </main>
 {/if}

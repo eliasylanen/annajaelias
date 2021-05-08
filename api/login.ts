@@ -20,8 +20,8 @@ export default async (req: NowRequest, res: NowResponse) => {
         sweden,
         day,
         evening,
-        registrations_available,
-        registrations_made,
+        // registrations_available,
+        // registrations_made,
         language,
       }): User => ({
         name,
@@ -30,8 +30,8 @@ export default async (req: NowRequest, res: NowResponse) => {
         sweden: sweden === 'TRUE',
         day: day === 'TRUE',
         evening: evening === 'TRUE',
-        registrations_available: parseInt(registrations_available, 10),
-        registrations_made: parseInt(registrations_made, 10),
+        // registrations_available: parseInt(registrations_available, 10),
+        // registrations_made: parseInt(registrations_made, 10),
         language,
       }),
     );

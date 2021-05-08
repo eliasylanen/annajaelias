@@ -1,3 +1,7 @@
+<script lang="ts">
+  export let evening = false;
+</script>
+
 <style lang="scss">
   @import "../styles/mixins.scss";
   .rsvp {
@@ -19,7 +23,12 @@
 </style>
 
 <section class="rsvp">
-  <a href="https://forms.gle/TbfPiiNNnXsZAuce6" target="_blank" class="button linkButton">
+  <a
+    href={!evening ? "https://forms.gle/TbfPiiNNnXsZAuce6" : "https://forms.gle/LYYNvk7HSNjigZ9S9"}
+    target="_blank"
+    class="button linkButton"
+  >
     Ilmoittaudu klikkaamalla tästä
   </a>
+  <h3>Ilmoittauduthan viimeistään 30.6. mennessä</h3>
 </section>
