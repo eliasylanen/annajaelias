@@ -60,7 +60,7 @@
   <form>
     <InputElement type="Name" placeholder="Nimi" bind:value={name} />
     <InputElement type="email" placeholder="Sähköposti" bind:value={email} />
-    <InputElement type="password" pattern={keyPattern} maxlength={5} placeholder="Koodi muotoa AA111" bind:value={key} />
+    <InputElement type="password" pattern={keyPattern} maxlength={5} placeholder="Omavalintainen koodi muotoa AA111" bind:value={key} />
     <InputElement type="submit" on:click={handleSubmit} bind:disabled={isDisabled} value="Rekisteröidy" />
   </form>
 
