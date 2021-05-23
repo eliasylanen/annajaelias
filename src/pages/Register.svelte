@@ -29,6 +29,8 @@
 
     response
       .then(({data, status}) => {
+        console.log({data, status});
+
         if (status === 200) {
           const { token } = data;
 
