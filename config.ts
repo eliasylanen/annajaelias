@@ -5,6 +5,7 @@ const {
   JWT_SECRET,
   RELEASE_DAY,
   KEY_PATTERN,
+  REMOTE_MODE,
 } = process.env;
 
 export const releaseDay = new Date(RELEASE_DAY).getTime();
@@ -18,3 +19,5 @@ export const sheet = {
 export const jwtSecret = JWT_SECRET;
 
 export const keyPattern = KEY_PATTERN;
+
+export const isRemoteMode = REMOTE_MODE === 'true';

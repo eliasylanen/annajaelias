@@ -31,7 +31,7 @@ export const getUserRowByEmail = async (email: string) => {
   return rows.filter(row => row.email === email);
 };
 
-export const getPresentData = async (): Promise<Present[]> => {
+export const getPresentData = async () => {
   const rows = await getRows(Sheet.Map);
   return rows.map(
     ({ itemFin, itemEng, countryFin, countryEng, priceShown, paid }): Present => ({

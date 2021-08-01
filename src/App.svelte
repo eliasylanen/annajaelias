@@ -20,6 +20,7 @@
 
   $: countDown = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
+
   setInterval(() => {
     showCounterOnInitialDraw = false;
     now = Date.now()
