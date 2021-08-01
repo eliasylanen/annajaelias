@@ -123,7 +123,7 @@ import { afterUpdate, onMount } from "svelte";
   <ul>
     <li id="minutes" on:click={() => window.scrollTo(0, 0)}><a href="#minutes">Päivän kulku</a></li>
     <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
-    <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
+    <!-- <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li> -->
   </ul>
   <button class="button" on:click={logout}>Kirjaudu ulos</button>
 </nav>
@@ -135,7 +135,7 @@ import { afterUpdate, onMount } from "svelte";
   <ul>
     <li id="minutes" on:click={() => window.scrollTo(0, 0)}><a href="#minutes">Päivän kulku</a></li>
     <li id="map" on:click={() => map.scrollIntoView()}><a href="#map">Lahjalista</a></li>
-    <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li>
+    <!-- <li id="rsvp" on:click={() => rsvp.scrollIntoView()}><a href="#rsvp">Ilmoittaudu</a></li> -->
   </ul>
   <button class="button" on:click={logout}>Kirjaudu ulos</button>
 </nav>

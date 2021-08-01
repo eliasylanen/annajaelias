@@ -26,6 +26,6 @@
 <main>
   <Minutes {user} />
   <Map />
-  <RSVP evening={user.evening} />
+  <!-- <RSVP evening={user.evening} /> -->
 </main>
 {/if}
