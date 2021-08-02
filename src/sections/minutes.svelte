@@ -77,10 +77,10 @@
       <div id="right">
         <div id="remote">
           <p>
-            Huom! Johtuen Pirkanmaan äkillisesti huonontuneesta Koronatilanteesta, on iltajuhlaan mahdollista osallistua myös etänä. Ilmoitathan halustasi osallistua juhliin kotisohvalta käsin Eliakselle numeroon 0400415358 viimeistään keskiviikkona 4.8.
+            Huom! Johtuen Pirkanmaan äkillisesti huonontuneesta Koronatilanteesta, on iltajuhlaan mahdollista osallistua myös etänä. Mikäli tahdot osallistua juhliin kotisohvalta käsin, tai et pysty osallistumaan ollenkaan, ilmoitathan siitä Eliakselle numeroon 0400415358 viimeistään keskiviikkona 4.8.
           </p>
           <p>
-            Etänä osallistuville järjestetään myös mahdollisuus hakea juhlissa tarjottavia juotavia & syötäviä Futuricen toimistolta ennen iltajuhlan alkua. Tästä tarkemmat tiedot ilmoittautumisen yhteydessä.
+            Etänä osallistuville järjestetään myös mahdollisuus hakea juhlissa tarjottavia juotavia & syötäviä Futuricen toimistolta ennen iltajuhlan alkua. Tästä tarkemmat tiedot ilmoituksen yhteydessä.
           </p>
         </div>
         <div>
