@@ -29,6 +29,8 @@ main {
 }
 h1 {
   font-size: 2.25rem;
+  border-bottom: 4px solid #D73838;
+  display: inline-block;
 }
 h2 {
   margin-top: 1.5em;
