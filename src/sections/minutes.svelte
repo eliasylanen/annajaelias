@@ -16,20 +16,46 @@
     grid-template-columns: repeat(2, auto);
     align-items: center;
 
+    h1 {
+      text-align: initial;
+
+      @include s {
+        text-align: center;
+      }
+    }
+
     #photos {
       grid-column: 1 / span 2;
+      margin: 0 auto 4rem;
+
+      @include s {
+        text-align: center;
+      }
 
       ul {
         list-style-type: none;
         padding: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+
+        @include s {
+          display: block;
+          text-align: center;
+        }
 
         li {
-          margin: 1rem 0;
+          margin: 1rem;
 
           a {
             font-size: 20px;
             color: black;
             padding: 0 .3rem;
+
+            &:hover {
+              border-bottom: 4px solid black;
+            }
 
             &:visited {
               color: black;
@@ -52,14 +78,6 @@
       #remote {
         font-weight: bold;
       }
-
-      h1 {
-        text-align: initial;
-
-        @include s {
-          text-align: center;
-        }
-      }
     }
 
     @include m {
@@ -69,7 +87,7 @@
     }
 
     @include s {
-      grid-template-columns: auto;
+      display: block;
 
       #left {
         margin: 0;
@@ -92,8 +110,10 @@
     <div id="photos">
       <h1>Valokuvat</h1>
       <p>
-        Juhlapäivän kuvat on nyt julkaistu, ja ne ovat katsottavissa allaolevissa Google Photos -albumeissa. Kaikki kuvat © Olli Suominen, Dreamlike Visuals.
+        Juhlapäivän kuvat on nyt julkaistu, ja ne ovat katsottavissa allaolevissa Google Photos -albumeissa.<br />
+        Kaikki kuvat © Olli Suominen, Dreamlike Visuals.
       </p>
+      <p>Kiitos kaikille osallistuneille ja meitä muistaneille!</p>
       <ul>
         <li>
           <a target="_blank" rel="noferrer" href="https://photos.app.goo.gl/QLrAVH1Fwz9QY97g7"> Kirkko </a>
